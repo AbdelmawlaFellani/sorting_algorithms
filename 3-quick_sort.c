@@ -1,16 +1,18 @@
 #include "sort.h"
+
 /**
- * devider - finds the pivot element in the array and returns its index
- * @array: the array to be sorted
- * @start: the starting index of the subarray
- * @end: the ending index of the subarray
- * @size: size of the array
+ * devider - This function finds the pivot
+ * element in the array and returns its index.
+ * @array: The array to sort.
+ * @start: The start index of the subarray to sort.
+ * @end: The end index of the subarray to sort.
+ * @size: The size of the array.
  *
  * Return: The index of the pivot element.
-**/
+ */
 int devider(int *array, int start, int end, size_t size)
 {
-	int i, j, tmp;
+	int j, tmp, i;
 
 	i = start - 1;
 
@@ -20,48 +22,53 @@ int devider(int *array, int start, int end, size_t size)
 		{
 			i++;
 			tmp = array[i];
-			array[i] = arr[j];
+			array[i] = array[j];
 			array[j] = tmp;
-			print_array(array, size);
+			if (j != i)
+				print_array(array, size);
 		}
 	}
+
 	i++;
 	if (array[i] != array[end])
 	{
-		tmp = array[i];
-		array[i] = array[end];
-		array[end] = tmp;
+		tmp = array[end];
+		array[end] = array[i];
+		array[i] = tmp;
 		print_array(array, size);
 	}
 	return (i);
 }
+
 /**
- * Lomuto_quick_sort - sorts an array of integers using the Quick Sort
- * algorithm with Lomuto partition scheme
- * @array: the array to be sorted
- * @start: the starting index of the subarray
- * @end: the ending index of the subarray
- * @size: size of the array
-**/
+ * Lomuto_quick_sort - This function sorts the array
+ * using the Lomuto partitioning scheme.
+ * @array: The array to sort.
+ * @start: The start index of the subarray to sort.
+ * @end: The end index of the subarray to sort.
+ * @size: The size of the array.
+ */
 void Lomuto_quick_sort(int *array, int start, int end, size_t size)
 {
 	int pivot;
 
 	if (end <= start)
 		return;
+
 	pivot = devider(array, start, end, size);
 	Lomuto_quick_sort(array, start, pivot - 1, size);
 	Lomuto_quick_sort(array, pivot + 1, end, size);
 }
+
 /**
- * quick_sort - sorts an array of integers in ascending order using the
- * Quick Sort algorithm with Lomuto partition scheme
- * @array: the array to be sorted
- * @size: size of the array
-**/
+ * quick_sort - This function sorts the array using the quick sort algorithm.
+ * @array: The array to sort.
+ * @size: The size of the array.
+ */
 void quick_sort(int *array, size_t size)
 {
 	if (!array || size < 2)
 		return;
+
 	Lomuto_quick_sort(array, 0, size - 1, size);
 }
