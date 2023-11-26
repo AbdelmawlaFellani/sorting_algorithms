@@ -8,7 +8,7 @@
  *
  * Return: The index of the pivot element.
 **/
-int devider(int *arr, int start, int end, size_t size)
+int devider(int *array, int start, int end, size_t size)
 {
 	int i, j, tmp;
 
@@ -16,22 +16,22 @@ int devider(int *arr, int start, int end, size_t size)
 
 	for (j = start; j < end; j++)
 	{
-		if (arr[j] < arr[end])
+		if (array[j] < array[end])
 		{
 			i++;
-			tmp = arr[i];
-			arr[i] = arr[j];
-			arr[j] = tmp;
-			print_array(arr, size);
+			tmp = array[i];
+			array[i] = arr[j];
+			array[j] = tmp;
+			print_array(array, size);
 		}
 	}
 	i++;
-	if (arr[i] != arr[end])
+	if (array[i] != array[end])
 	{
-		tmp = arr[i];
-		arr[i] = arr[end];
-		arr[end] = tmp;
-		print_array(arr, size);
+		tmp = array[i];
+		array[i] = array[end];
+		array[end] = tmp;
+		print_array(array, size);
 	}
 	return (i);
 }
@@ -43,15 +43,15 @@ int devider(int *arr, int start, int end, size_t size)
  * @end: the ending index of the subarray
  * @size: size of the array
 **/
-void Lomuto_quick_sort(int *arr, int start, int end, size_t size)
+void Lomuto_quick_sort(int *array, int start, int end, size_t size)
 {
 	int pivot;
 
 	if (end <= start)
 		return;
-	pivot = devider(arr, start, end, size);
-	Lomuto_quick_sort(arr, start, pivot - 1, size);
-	Lomuto_quick_sort(arr, pivot + 1, end, size);
+	pivot = devider(array, start, end, size);
+	Lomuto_quick_sort(array, start, pivot - 1, size);
+	Lomuto_quick_sort(array, pivot + 1, end, size);
 }
 /**
  * quick_sort - sorts an array of integers in ascending order using the
@@ -59,9 +59,9 @@ void Lomuto_quick_sort(int *arr, int start, int end, size_t size)
  * @arr: the array to be sorted
  * @size: size of the array
 **/
-void quick_sort(int *arr, size_t size)
+void quick_sort(int *array, size_t size)
 {
-	if (!arr || size < 2)
+	if (!array || size < 2)
 		return;
-	Lomuto_quick_sort(arr, 0, size - 1, size);
+	Lomuto_quick_sort(array, 0, size - 1, size);
 }
