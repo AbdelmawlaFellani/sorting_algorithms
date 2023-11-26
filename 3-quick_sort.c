@@ -12,7 +12,7 @@ int devider(int *array, int start, int end, size_t size)
 {
 	int i, j, tmp;
 
-	i = start -1;
+	i = start - 1;
 
 	for (j = start; j < end; j++)
 	{
