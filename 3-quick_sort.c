@@ -1,7 +1,7 @@
 #include "sort.h"
 /**
  * devider - finds the pivot element in the array and returns its index
- * @arr: the array to be sorted
+ * @array: the array to be sorted
  * @start: the starting index of the subarray
  * @end: the ending index of the subarray
  * @size: size of the array
@@ -38,7 +38,7 @@ int devider(int *array, int start, int end, size_t size)
 /**
  * Lomuto_quick_sort - sorts an array of integers using the Quick Sort
  * algorithm with Lomuto partition scheme
- * @arr: the array to be sorted
+ * @array: the array to be sorted
  * @start: the starting index of the subarray
  * @end: the ending index of the subarray
  * @size: size of the array
@@ -56,7 +56,7 @@ void Lomuto_quick_sort(int *array, int start, int end, size_t size)
 /**
  * quick_sort - sorts an array of integers in ascending order using the
  * Quick Sort algorithm with Lomuto partition scheme
- * @arr: the array to be sorted
+ * @array: the array to be sorted
  * @size: size of the array
 **/
 void quick_sort(int *array, size_t size)
